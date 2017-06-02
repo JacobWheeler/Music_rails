@@ -1,0 +1,18 @@
+<h1> Top Billboards </h1>
+<hr />
+
+<%= link_to 'New Entry', new_billboard_path %>
+
+<% if @billboards.empty? %>
+  <h3> No current Billboards </h3>
+  <% else %>
+  <ul>
+    <% @billboards.each do |billboards| %>
+    <li>
+      <%= link_to billboards.name, billboard_path(billboards)%>
+      <%= link_to 'Delete', billboard_path(billboards), method: :delete %>
+      <%= link_to 'Edit', edit_billboard_path(billboards) %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
